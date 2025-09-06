@@ -1,0 +1,12 @@
+project_name: "wr-cli"
+
+commands:
+  test: "uv run pytest tests/ -v"
+  test-cov: "uv run pytest tests/ --cov=wr_cli --cov-report=term-missing --cov-report=html -v"
+  coverage: "uv run pytest tests/ --cov=wr_cli --cov-report=term-missing --cov-report=html --cov-branch"
+  coverage-html: "uv run pytest tests/ --cov=wr_cli --cov-report=html --cov-branch && open htmlcov/index.html"
+  lint: "uv run black --check . && uv run isort --check-only . && uv run mypy ."
+  format: "uv run black . && uv run isort ."
+  build: "uv build"
+  clean: "rm -rf dist/ build/ *.egg-info/ .coverage htmlcov/ coverage.xml .pytest_cache/"
+  sync: "uv sync"
